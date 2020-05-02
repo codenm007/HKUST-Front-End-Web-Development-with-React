@@ -1,31 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {Card, CardImg, CardTitle, CardText, CardBody } from 'reactstrap';
 
-
- class DishDetail extends Component {
-
-    // constructor(props) {
-    //     super(props);
-
-    //     this.state = {
-    //         selectedDish: null,
-    //         comments:null
-    //     }
-    // }
-
-    componentDidMount(){
-        console.log('Dishdetail Component componentDidMount constructor invoked ');
-        }
-      
-        componentDidUpdate(){
-            console.log('Dishdetail Component componentDidUpdate constructor invoked ');
-        }
-      
-
-   renderDish(dish) {
+function RenderDish({dish}) {
     if(dish != null){
              return (
-                 <div class = "container">
                 <div className=" col-xs-12 col-sm-12 col-md-5 m-1">
                 <Card >
                     <CardImg width="100%" object src={dish.image} alt={dish.name} />
@@ -35,16 +13,15 @@ import {Card, CardImg, CardTitle, CardText, CardBody } from 'reactstrap';
                     </CardBody>
                 </Card>
             </div>
-            </div>
-             );
-            }else{
+            );}
+            else{
                 return(
                     <div></div>
                 );
     }
 }
 
-    renderComment(cmt) {
+    function RenderComment({cmt}) {
         if(cmt!=null)
         { const comnts=cmt.map((c)=>{
             return(
@@ -72,18 +49,20 @@ import {Card, CardImg, CardTitle, CardText, CardBody } from 'reactstrap';
     }
        
 
-    render()
-    {
-        console.log('Dishdetail Component componentDidMount render invoked ');
-        if (this.props.dish == null) {
+    const DishDetail = (props) => {
+    // eslint-disable-next-line no-lone-blocks
+    {if (props.dish == null) {
             return (<div>
 
             </div>);
         }
         return (
+            <div className = "container">
                 <div className="row">
-                  {this.renderDish(this.props.dish)}
-                  {this.renderComment(this.props.comments)}
+                  <RenderDish dish={props.dish} />
+                  
+                  <RenderComment cmt = {(props.dish.comments)} />
+                </div>
                 </div>
                 
         );
