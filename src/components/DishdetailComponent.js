@@ -1,12 +1,31 @@
 import React, { Component } from 'react';
 import {Card, CardImg, CardTitle, CardText, CardBody } from 'reactstrap';
 
+
  class DishDetail extends Component {
 
+    // constructor(props) {
+    //     super(props);
+
+    //     this.state = {
+    //         selectedDish: null,
+    //         comments:null
+    //     }
+    // }
+
+    componentDidMount(){
+        console.log('Dishdetail Component componentDidMount constructor invoked ');
+        }
+      
+        componentDidUpdate(){
+            console.log('Dishdetail Component componentDidUpdate constructor invoked ');
+        }
+      
 
    renderDish(dish) {
     if(dish != null){
              return (
+                 <div class = "container">
                 <div className=" col-xs-12 col-sm-12 col-md-5 m-1">
                 <Card >
                     <CardImg width="100%" object src={dish.image} alt={dish.name} />
@@ -15,6 +34,7 @@ import {Card, CardImg, CardTitle, CardText, CardBody } from 'reactstrap';
                         <CardText>{dish.description}</CardText>
                     </CardBody>
                 </Card>
+            </div>
             </div>
              );
             }else{
@@ -33,7 +53,7 @@ import {Card, CardImg, CardTitle, CardText, CardBody } from 'reactstrap';
                         {c.comment}
                     </p>
                     <p>
-                        -{c.author} , { c.date}
+                        -{c.author} , {new Intl.DateTimeFormat('en-US',{year:'numeric',month: 'short',day : '2-digit'}).format(new Date(Date.parse(c.date)))}
                     </p>
                 </li>
         )});
@@ -54,6 +74,7 @@ import {Card, CardImg, CardTitle, CardText, CardBody } from 'reactstrap';
 
     render()
     {
+        console.log('Dishdetail Component componentDidMount render invoked ');
         if (this.props.dish == null) {
             return (<div>
 
