@@ -3,14 +3,14 @@ import { Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle} from 'reactstrap';
 import {Loading} from './LoadingComponent';    
 
-function RenderCard({item, isLoading, errorMsg}) {
+function RenderCard({item, isLoading, errMess}) {
     if (isLoading) {
         return (
             <Loading />
         );
-    } else if (errorMsg) {
+    } else if (errMess) {
         return (
-            <h4>{errorMsg}</h4>
+            <h4>{errMess}</h4>
         );
     } else {
         return (
@@ -34,7 +34,7 @@ function Home(props) {
                    
                     <RenderCard item={props.dish} 
                     isLoading={props.dishesLoading} 
-                    errorMsg={props.dishesErrorMsg} />
+                    errMess={props.dishesErrMess} />
                 </div>
                 <div className="col-12 col-md m-1">
                     <RenderCard item={props.promotion} />

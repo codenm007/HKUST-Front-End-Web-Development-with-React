@@ -39,7 +39,7 @@ render() {
     return(
       <Home dish={this.props.dishes.dishes.filter((dish) => dish.featured)[0]}
       dishesLoading={this.props.dishes.isLoading}
-      dishesErrorMsg={this.props.dishes.errormsg}
+      dishesErrMess={this.props.dishes.errMess}
       promotion={this.props.promotions.filter((promo) => promo.featured)[0]}
       leader={this.props.leaders.filter((leader) => leader.featured)[0]}
       />
@@ -50,7 +50,7 @@ render() {
    return(
     <DishDetail dish={this.props.dishes.dishes.filter((dish) => dish.id === parseInt(match.params.dishId, 10))[0]}
     isLoading={this.props.dishes.isLoading}
-    ErrorMsg={this.props.dishes.errormsg}       
+    errMess={this.props.dishes.errMess}   
     comments={this.props.comments.filter((comment) => comment.dishId === parseInt(match.params.dishId, 10))}
     addComment={this.props.addComment}
 />

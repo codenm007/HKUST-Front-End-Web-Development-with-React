@@ -33,11 +33,11 @@ function RenderMenuItem({dish}){
               </div>
           </div>
     );
-  } else if (props.dishes.errorMsg) {
+  } else if (props.dishes.errMess) {
     return (
         <div className="container">
             <div className="row">
-                <h4>{props.dishes.errorMsg}</h4>
+                <h4>{props.dishes.errMess}</h4>
             </div>
         </div>
    );     
