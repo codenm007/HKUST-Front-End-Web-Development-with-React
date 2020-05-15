@@ -279,6 +279,16 @@
       "message": "afadsfds",
       "date": "2017-12-04T09:41:49.890Z",
       "id": 1
+    },
+    {
+      "lastname": "Nilanjan",
+      "phone": "Majumdar",
+      "email": "someone12@gmail.com",
+      "agree": true,
+      "contactType": "Email",
+      "message": "hello how are you",
+      "date": "2020-05-15T04:31:03.894Z",
+      "id": 2
     }
   ]
 }
